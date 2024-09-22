@@ -1,5 +1,5 @@
 'use client';
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import { FaCamera, FaArrowLeft } from 'react-icons/fa';
 import { GoTrash } from 'react-icons/go';
 import { FaCircleArrowLeft } from "react-icons/fa6";
@@ -8,22 +8,11 @@ import { FiSend } from "react-icons/fi";
 import { motion } from 'framer-motion';
 import { TiThMenu } from "react-icons/ti";
 
-
 const Chat = () => {
   const [message, setMessage] = useState('');
   const [messages, setMessages] = useState([]);
   const [selectedUser, setSelectedUser] = useState("Samay");
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-
-  const chatEndRef = useRef(null);
-
-  const scrollToBottom = () => {
-    chatEndRef.current?.scrollIntoView({ behavior: 'smooth' });
-  };
-
-  useEffect(() => {
-    scrollToBottom();
-  }, [messages]);
 
   const users = ['Maheep', 'Samay', 'Arpit'];
 
@@ -44,15 +33,15 @@ const Chat = () => {
 
   const handleUserClick = (user) => {
     setSelectedUser(user);
-    setMessages([]); 
-    setIsSidebarOpen(false); 
+    setMessages([]);
+    setIsSidebarOpen(false);
   };
 
   return (
     <div className="relative flex h-[90vh] gap-3 w-full max-w-[1200px] mx-auto overflow-hidden rounded-lg">
       
       <aside
-        className={`fixed md:relative z-20 rounded-lg  top-0 left-0 h-[100vh] md:h-auto md:static w-64 bg-[#121212] p-4 transform ${
+        className={`fixed md:relative z-20 rounded-lg top-0 left-0 h-[100vh] md:h-auto md:static w-64 bg-[#121212] p-4 transform ${
           isSidebarOpen ? 'translate-x-0' : '-translate-x-full'
         } transition-transform duration-300 ease-in-out md:translate-x-0`}
       >
@@ -126,18 +115,17 @@ const Chat = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.3 }}
-              className={`chat ${msg.sent ? 'chat-end' : 'chat-start'} mb-4`}
+              className={`mb-4 flex ${msg.sent ? 'justify-end' : 'justify-start'}`}
             >
               <div
                 className={`chat-bubble ${
-                  msg.sent ? 'bg-[#e9967a] text-black' : 'bg-[#1e1e1e] text-white'
-                }`}
+                  msg.sent ? 'bg-[#e9967a] text-black rounded-l-lg rounded-br-lg' : 'bg-[#1e1e1e] text-white rounded-r-lg rounded-bl-lg'
+                } p-3 max-w-[70%]`}
               >
                 {msg.text}
               </div>
             </motion.div>
           ))}
-          <div ref={chatEndRef}></div>
         </div>
 
         <div className="p-4">
