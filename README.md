@@ -14,7 +14,7 @@ You need to have **Node.js** and **npm** (or **yarn**) installed on your machine
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/your-username/arcsys.git
+   git clone https://github.com/sheenu-exe/arcsys.git
    ```
 
 2. Navigate into the project directory:
