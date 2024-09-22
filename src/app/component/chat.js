@@ -17,7 +17,9 @@ const Chat = () => {
 
   const chatEndRef = useRef(null);
 
-  
+  const scrollToBottom = () => {
+    chatEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+  };
 
   useEffect(() => {
     scrollToBottom();
