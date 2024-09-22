@@ -49,10 +49,10 @@ const Chat = () => {
   };
 
   return (
-    <div className="relative flex h-[90vh] w-full max-w-[1200px] mx-auto overflow-hidden rounded-lg">
+    <div className="relative flex h-[90vh] gap-3 w-full max-w-[1200px] mx-auto overflow-hidden rounded-lg">
       
       <aside
-        className={`fixed md:relative z-20  top-0 left-0 h-[100vh] md:h-auto md:static w-64 bg-[#121212] p-4 transform ${
+        className={`fixed md:relative z-20 rounded-lg  top-0 left-0 h-[100vh] md:h-auto md:static w-64 bg-[#121212] p-4 transform ${
           isSidebarOpen ? 'translate-x-0' : '-translate-x-full'
         } transition-transform duration-300 ease-in-out md:translate-x-0`}
       >
@@ -97,8 +97,8 @@ const Chat = () => {
         ></div>
       )}
 
-      <main className="flex-1 bg-[#121212] flex flex-col h-[90vh] md:h-auto">
-        <div className="bg-[#1e1e1e] p-4 flex justify-between items-center">
+      <main className="flex-1 bg-[#121212] rounded-lg flex flex-col h-[90vh] md:h-auto">
+        <div className="bg-[#1e1e1e] p-4 flex rounded-lg justify-between items-center">
           <div className="flex items-center">
             <button
               className="text-white mr-4 md:hidden"
